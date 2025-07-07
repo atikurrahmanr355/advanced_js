@@ -1,0 +1,17 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+.li-list{
+    color: whitesmoke;
+    background-color : rgb(28, 28, 85);
+    height : 40px;
+    width : 200px;
+    margin : 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

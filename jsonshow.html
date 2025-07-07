@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>JSON</h1>
+    <h3>Java Script Object Notation</h3>
+    <h4>User Name:</h4>
+    <ul id="user-list">
+
+    </ul>
+    <h4>User Email: </h4>
+    <ul id="user-email">
+
+    </ul>
+
+
+    <script>
+        fetch('https://jsonplaceholder.typicode.com/users')
+        .then(response => response.json())
+        .then(json => displayUser(json))
+
+        function displayUser(users){
+            const userName = users.map(user => user.name);
+            const emails = users.map(user => user.email);
+            for(let i = 0; i < userName.length; i++){
+                const userNames = userName[i];
+                const ul = document.getElementById("user-list");
+                const li = document.createElement('li');
+                li.innerText = userNames;
+                ul.appendChild(li);
+                li.classList.add('li-list');
+
+            }
+            for(let i = 0; i < emails.length; i++){
+                const email = emails[i];
+                const ul = document.getElementById("user-email");
+                const li = document.createElement('li');
+                li.innerText = email;
+                ul.appendChild(li);
+                li.classList.add('li-list');
+
+            }
+            console.log(users);
+        }
+    </script>
+</body>
+</html>
